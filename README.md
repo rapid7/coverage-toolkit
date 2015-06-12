@@ -4,7 +4,7 @@ The coverage toolkit provides customers with a mechanism for contributing conten
 
 # Fingerprints
 
-The protocol fingerprint is described using a simple XML format.  A protocol can contain multiple fingerprints and each fingerprint is tried until at least one is successful.  If none of the fingerprints are successful the protocol is skipped.  There is no limitation on duplicate protocols in the framework, and multiple protocols of the same name can be added with different checks for different ports if such a technique is required for performance or accuracy.  A protocol is tested against a port, protocol, and IP type, based on an applicability test.  The applicability test includes the probability that a protocol is associated with a particular port, layer 4 protocol (TCP or UDP) and IP type (IPv4 or IPv6).  If undefined, either layer 4 protocol, or IP type, is tested.  The port can be described as a regular expression i.e. every port from 80-89 can be described as "8[0-9]".
+The protocol fingerprint is described using a simple XML format.  A protocol can contain multiple fingerprints and each fingerprint is tried until at least one is successful.  If none of the fingerprints are successful the protocol is skipped.  There is no limitation on duplicate protocols in the framework, and multiple protocols of the same name can be added with different checks for different ports if such a technique is required for performance or accuracy.
 
 Example:
 ```
@@ -20,6 +20,10 @@ Example:
 ## Protocol Framework Version
 
 The protocol framework version, currently 1.0, influences what the XML format of the protocol fingerprint will look like.  As we develop this feature, the protocol framework version will be incremented, and it is possible that future versions of this future will look very different from what the current protocol framework version looks like.  The Nexpose product will maintain backward compatibility with prior protocol framework versions for a reasonable amount of time.  The Nexpose team will update legacy protocol fingerprints to newer versions when applicable.  It is recommended that customers contribute their protocol fingerprints to the coverage toolkit project so we can maintain them, and update them, when their protocol framework version is deprecated.
+
+## Applicability
+
+A protocol is tested against a port, protocol, and IP type, based on an applicability test.  The applicability test includes the probability that a protocol is associated with a particular port, layer 4 protocol (TCP or UDP) and IP type (IPv4 or IPv6).  If undefined, either layer 4 protocol, or IP type, is tested.  The port can be described as a regular expression i.e. every port from 80-89 can be described as "8[0-9]".
 
 ## Fingerprint
 
