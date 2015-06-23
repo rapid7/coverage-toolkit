@@ -1,0 +1,16 @@
+<Protocol frameworkVersion='1.0' name='ident' tls='false'>
+ <Applicable protocol='TCP' port='113' preference='1.0'/>
+ <Fingerprint>
+  <Match response="^flock\(\) on closed filehandle .*midentd"/>
+ </Fingerprint>
+ <Fingerprint>
+  <Match response="^nullidentd -- version (\d[-.\w]+)\nCopyright "/>
+ </Fingerprint>
+ <Fingerprint>
+  <Match response="^\d+, \d+ : USERID : FreeBSD : \[x\]-\d+\r\n"/>
+ </Fingerprint>
+ <Fingerprint>
+  <Send request="0, 0\r\n"/>
+  <Match response="^\d+[ ]*,[ ]*\d+[ ]*:[ ]*(?:ERROR|USERID)[ ]*:"/>
+ </Fingerprint>
+</Protocol>
