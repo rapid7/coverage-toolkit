@@ -1,0 +1,11 @@
+<Protocol frameworkVersion='1.0' name='ormi' tls='false'>
+ <Applicable layer4='TCP' port='5520' preference='1.0'/>
+ <Fingerprint>
+  <Send request="GET / HTTP/1.0\r\n\r\n"/>
+  <Match response="^\xe3\r\n\r\n\0\x01\0.\0vInvalid protocol verification, illegal ORMI request or request performed with an incompatible version of this protocol"/>
+ </Fingerprint>
+ <Fingerprint>
+  <Send request="GET / HTTP/1.0\r\n\r\n"/>
+  <Match response="^\xe3\r\n\r\n\0\x01\0\x03\x0b\0vInvalid protocol verification, illegal ORMI request or request performed with an incompatible version of this protocol"/>
+ </Fingerprint>
+</Protocol>
