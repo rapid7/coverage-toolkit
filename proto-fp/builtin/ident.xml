@@ -1,5 +1,5 @@
 <Protocol frameworkVersion='1.0' name='ident' tls='false'>
- <Applicable protocol='TCP' port='113' preference='1.0'/>
+ <Applicable layer4='TCP' port='113' preference='1.0'/>
  <Fingerprint>
   <Match response="^flock\(\) on closed filehandle .*midentd"/>
  </Fingerprint>
