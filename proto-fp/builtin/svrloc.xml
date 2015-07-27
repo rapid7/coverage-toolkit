@@ -1,0 +1,7 @@
+<Protocol frameworkVersion='1.0' name='Service Location' tls='false'>
+ <Applicable port='427' preference='1.0'/>
+ <Fingerprint>
+  <Send request="\x02\x01\x00\x006 \x00\x00\x00\x00\x00\x01\x00\x02en\x00\x00\x00\x15service:service-agent\x00\x07default\x00\x00\x00\x00"/>
+  <Match response="^\x02\x0b"/>
+ </Fingerprint>
+</Protocol>
