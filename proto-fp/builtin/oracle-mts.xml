@@ -1,0 +1,11 @@
+<Protocol frameworkVersion='1.0' name='Oracle Services for Microsoft Transaction Server' tls='false'>
+ <Applicable layer4='TCP' port='49152' preference='1.0'/>
+ <Fingerprint>
+  <Send request="GET / HTTP/1.0\r\n\r\n"/>
+  <Match response="^HTTP/1\.0 200 OK\r\nContent-length: 7\r\n\r\nunknown$"/>
+ </Fingerprint>
+ <Fingerprint>
+  <Send request="GET / HTTP/1.0\r\n\r\n"/>
+  <Match response="^HTTP/1\.0 400 Bad Request\r\nContent-length: 15\r\nContent-type: text/html\r\n\r\n400 Bad Request$"/>
+ </Fingerprint>
+</Protocol>
