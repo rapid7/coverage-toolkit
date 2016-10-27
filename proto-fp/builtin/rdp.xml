@@ -1,0 +1,63 @@
+<Protocol frameworkVersion="1.1" name="RDP">
+   <Applicable port="3389" preference="1.0" />
+   <Applicable port="339[0-9]" preference="0.75" />
+   <Applicable preference="0.5" />
+
+   <Probe>
+      <Send packet="\x03\0\0\x0b\x06\xe0\0\0\0\0\0" />
+      <Match pattern="^\x03\0\0(?:\x0b.{7}|\x0e.{10}|\x11.{13}|\x17.{19})" />
+   </Probe>
+
+   <Fingerprint pattern="^\x03\0\0\x0b\x06\xd0\0\0\x12.\0$">
+      <Param name="service.vendor" value="Microsoft" />
+      <Param name="service.product" value="Terminal Service" />
+      <Param name="os.vendor" value="Microsoft" />
+      <Param name="os.device" value="General" />
+      <Param name="os.product" value="Windows" />
+   </Fingerprint>
+
+   <Fingerprint pattern="^\x03\0\0\x17\x08\x02\0\0Z~\0\x0b\x05\x05@\x06\0\x08\x91J\0\x02X$">
+      <Param name="service.vendor" value="Microsoft" />
+      <Param name="service.product" value="Terminal Service" />
+      <Param name="os.vendor" value="Microsoft" />
+      <Param name="os.device" value="General" />
+      <Param name="os.product" value="Windows" />
+   </Fingerprint>
+
+   <Fingerprint pattern="^\x03\0\0\x11\x08\x02..}\x08\x03\0\0\xdf\x14\x01\x01$">
+      <Param name="service.vendor" value="Microsoft" />
+      <Param name="service.product" value="NetMeeting Remote Desktop Service" />
+      <Param name="os.vendor" value="Microsoft" />
+      <Param name="os.device" value="General" />
+      <Param name="os.product" value="Windows" />
+   </Fingerprint>
+
+   <Fingerprint pattern="^\x03\0\0\x0b\x06\xd0\0\0\x03.\0$">
+      <Param name="service.vendor" value="Microsoft" />
+      <Param name="service.product" value="NetMeeting Remote Desktop Service" />
+      <Param name="os.vendor" value="Microsoft" />
+      <Param name="os.device" value="General" />
+      <Param name="os.product" value="Windows" />
+   </Fingerprint>
+
+   <Fingerprint pattern="^\x03\0\0\x0b\x06\xd0\0\0\0\0\0.*">
+      <Param name="service.vendor" value="xrdp" />
+      <Param name="service.product" value="xrdp" />
+   </Fingerprint>
+
+   <Fingerprint pattern="^\x03\0\0\x0e\t\xd0\0\0\0[\x02\xa1]\0\xc0\x01\n$">
+      <Param name="service.vendor" value="IBM" />
+      <Param name="service.product" value="Sametime Meeting Services" />
+      <Param name="os.vendor" value="Microsoft" />
+      <Param name="os.device" value="General" />
+      <Param name="os.product" value="Windows" />
+   </Fingerprint>
+
+   <Fingerprint pattern="^\x03\0\0\x0b\x06\xd0\0\x004\x12\0.*">
+      <Param name="service.vendor" value="VirtualBox" />
+      <Param name="service.product" value="VirtualBox VM Remote Desktop Service" />
+      <Param name="os.vendor" value="Microsoft" />
+      <Param name="os.device" value="General" />
+      <Param name="os.product" value="Windows" />
+   </Fingerprint>
+</Protocol>
