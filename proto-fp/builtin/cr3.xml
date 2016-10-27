@@ -1,0 +1,13 @@
+<Protocol frameworkVersion='1.0' name='Crimson v3' tls='false'>
+   <Applicable layer4='TCP' port='789' preference='1.0'/>
+   <Fingerprint>
+      <!-- Manufacturer probe -->
+      <Send request="\x00\x04\x01\x2b\x1b\x00"/>
+      <Match response="^\x00\x16\x01\x2b\x03\x00"/>
+   </Fingerprint>
+   <Fingerprint>
+      <!-- Model probe -->
+      <Send request="\x00\x04\x01\x2a\x1a\x00"/>
+      <Match response="^\x00\x09\x01\x2a\x03\x00"/>
+   </Fingerprint>
+</Protocol>
